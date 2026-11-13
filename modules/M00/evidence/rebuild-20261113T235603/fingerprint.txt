@@ -1,0 +1,50 @@
+# fingerprint (stable identity fields only)
+# NOTE: volatile metrics (load, free mem, counters) intentionally excluded
+uname=Linux DESKTOP-OIREDI3 6.18.26.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Wed May  6 23:41:00 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+os=PRETTY_NAME="Ubuntu 24.04.4 LTS"
+timezone=Asia/Shanghai
+cgroup=cgroup2fs
+lscpu.Architecture=Architecture: x86_64
+lscpu.CPU_s_=CPU(s): 10
+lscpu.Model.name=Model name: AMD Ryzen 7 9800X3D 8-Core Processor
+lscpu.Thread_s_.per.core=Thread(s) per core: 2
+lscpu.Core_s_.per.socket=Core(s) per socket: 5
+lscpu.Socket_s_=Socket(s): 1
+lscpu.NUMA.node_s_=NUMA node(s): 1
+nproc=nproc=10
+meminfo.MemTotal=MemTotal:       20481156 kB
+meminfo.SwapTotal=SwapTotal:       8388608 kB
+swapon.size=8G
+rootfs=<root-dev> ext4 rw,relatime,discard,errors=remount-ro,data=ordered
+root.df=ext4 1007G
+net.nameserver=nameserver 10.255.255.254
+net.default_gw=default via <nat-gw> dev eth0 proto kernel 
+tools.OK lscpu /usr/bin/lscpu
+tools.OK nproc /usr/bin/nproc
+tools.OK vmstat /usr/bin/vmstat
+tools.OK free /usr/bin/free
+tools.OK df /usr/bin/df
+tools.OK lsblk /usr/bin/lsblk
+tools.OK findmnt /usr/bin/findmnt
+tools.OK ip /usr/sbin/ip
+tools.OK ss /usr/bin/ss
+tools.MISS iostat 
+tools.MISS mpstat 
+tools.MISS pidstat 
+tools.MISS sar 
+tools.OK ping /usr/bin/ping
+tools.MISS dig 
+tools.MISS nslookup
+tools.OK getent /usr/bin/getent
+tools.OK curl /usr/bin/curl
+tools.OK wget /usr/bin/wget
+tools.MISS jq 
+tools.OK docker /mnt/d/Docker/Desktop/resources/bin/docker
+tools.MISS go 
+tools.OK git /usr/bin/git
+tools.MISS stress 
+tools.MISS fio 
+tools.MISS unzip 
+tools.OK tar /usr/bin/tar
+host.windows=BuildNumber : 26200
+host.wsl=WSL 版本: 2.7.7.0

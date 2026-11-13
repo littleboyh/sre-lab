@@ -1,0 +1,72 @@
+# captured_at=2026-11-13T23:55:11+08:00
+## df -hT (local)
+Filesystem     Type     Size  Used Avail Use% Mounted on
+none           overlay  9.8G     0  9.8G   0% /usr/lib/modules/6.18.26.1-microsoft-standard-WSL2
+none           tmpfs    9.8G  4.0K  9.8G   1% /mnt/wsl
+drivers        9p       201G  122G   79G  61% /usr/lib/wsl/drivers
+/dev/sdd       ext4    1007G  2.2G  954G   1% /
+none           tmpfs    9.8G   36K  9.8G   1% /mnt/wslg
+none           overlay  9.8G     0  9.8G   0% /usr/lib/wsl/lib
+rootfs         rootfs   9.8G  2.8M  9.8G   1% /init
+none           tmpfs    9.8G  504K  9.8G   1% /run
+none           tmpfs    9.8G     0  9.8G   0% /run/lock
+none           tmpfs    9.8G     0  9.8G   0% /run/shm
+none           overlay  9.8G  100K  9.8G   1% /mnt/wslg/versions.txt
+none           overlay  9.8G  100K  9.8G   1% /mnt/wslg/doc
+C:\            9p       201G  122G   79G  61% /mnt/c
+D:\            9p       732G  258G  474G  36% /mnt/d
+tmpfs          tmpfs    2.0G   20K  2.0G   1% /run/user/1000
+
+## df -i (inode)
+Filesystem       Inodes   IUsed    IFree IUse% Mounted on
+none            2560144       5  2560139    1% /usr/lib/modules/6.18.26.1-microsoft-standard-WSL2
+none            2560144       2  2560142    1% /mnt/wsl
+drivers             999 -999001  1000000     - /usr/lib/wsl/drivers
+/dev/sdd       67108864   49652 67059212    1% /
+none            2560144      23  2560121    1% /mnt/wslg
+none            2560144       7  2560137    1% /usr/lib/wsl/lib
+rootfs          2558704      12  2558692    1% /init
+none            2560144     541  2559603    1% /run
+none            2560144       2  2560142    1% /run/lock
+none            2560144       1  2560143    1% /run/shm
+none            2560144      58  2560086    1% /mnt/wslg/versions.txt
+none            2560144      58  2560086    1% /mnt/wslg/doc
+C:\                 999 -999001  1000000     - /mnt/c
+D:\                 999 -999001  1000000     - /mnt/d
+tmpfs            512028      43   511985    1% /run/user/1000
+
+## lsblk
+NAME TYPE   SIZE FSTYPE MOUNTPOINTS
+sda  disk 356.9M ext4   
+sdb  disk 159.4M ext4   
+sdc  disk     8G swap   [SWAP]
+sdd  disk     1T ext4   /mnt/wslg/distro
+                        /
+
+## root filesystem mount
+/dev/sdd ext4   rw,relatime,discard,errors=remount-ro,data=ordered
+
+## /proc/diskstats (sample)
+   1       0 ram0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       1 ram1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       2 ram2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       3 ram3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       4 ram4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       5 ram5 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       6 ram6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       7 ram7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       8 ram8 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1       9 ram9 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      10 ram10 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      11 ram11 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      12 ram12 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      13 ram13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      14 ram14 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   1      15 ram15 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       0 loop0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       1 loop1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       2 loop2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+   7       3 loop3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+## iostat (if sysstat installed)
+iostat not available (sysstat)

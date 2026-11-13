@@ -1,0 +1,63 @@
+# captured_at=2026-11-13T23:54:15+08:00
+## pid1
+      1 systemd         /sbin/init
+
+## process count
+total=25
+
+## top 20 by cpu
+    PID    PPID COMMAND         %CPU %MEM     ELAPSED
+      1       0 systemd          1.5  0.0       00:17
+     40       1 systemd-journal  0.5  0.0       00:17
+     86       1 systemd-udevd    0.4  0.0       00:17
+    377     376 bash             0.3  0.0       00:06
+    310       1 systemd          0.2  0.0       00:16
+    191       1 unattended-upgr  0.2  0.1       00:16
+    169       1 wsl-pro-service  0.2  0.0       00:17
+    152       1 systemd-resolve  0.2  0.0       00:17
+    153       1 systemd-timesyn  0.1  0.0       00:17
+    238       1 systemd-timedat  0.1  0.0       00:16
+    167       1 systemd-logind   0.1  0.0       00:17
+    174       1 rsyslogd         0.0  0.0       00:16
+    160       1 dbus-daemon      0.0  0.0       00:17
+      2       1 init-systemd(Ub  0.0  0.0       00:17
+      7       2 init             0.0  0.0       00:17
+    159       1 cron             0.0  0.0       00:17
+    180       1 agetty           0.0  0.0       00:16
+    277       2 login            0.0  0.0       00:16
+    311     310 (sd-pam)         0.0  0.0       00:16
+    331     277 bash             0.0  0.0       00:16
+
+## top 20 by mem
+    PID    PPID COMMAND         %CPU %MEM   RSS
+    191       1 unattended-upgr  0.2  0.1 23524
+     40       1 systemd-journal  0.5  0.0 19680
+    169       1 wsl-pro-service  0.2  0.0 13924
+    152       1 systemd-resolve  0.2  0.0 13340
+      1       0 systemd          1.5  0.0 13272
+    310       1 systemd          0.2  0.0 11388
+    167       1 systemd-logind   0.1  0.0  8852
+    153       1 systemd-timesyn  0.1  0.0  8088
+    238       1 systemd-timedat  0.1  0.0  7604
+     86       1 systemd-udevd    0.4  0.0  6844
+    174       1 rsyslogd         0.0  0.0  5752
+    160       1 dbus-daemon      0.0  0.0  5488
+    331     277 bash             0.0  0.0  5336
+    277       2 login            0.0  0.0  4788
+    437     377 ps               0.0  0.0  4116
+    311     310 (sd-pam)         0.0  0.0  3656
+    377     376 bash             0.3  0.0  3616
+    159       1 cron             0.0  0.0  2872
+      2       1 init-systemd(Ub  0.0  0.0  2208
+      7       2 init             0.0  0.0  2044
+
+## listening sockets
+Netid State  Recv-Q Send-Q  Local Address:Port Peer Address:PortProcess
+udp   UNCONN 0      0          127.0.0.54:53        0.0.0.0:*          
+udp   UNCONN 0      0       127.0.0.53%lo:53        0.0.0.0:*          
+udp   UNCONN 0      0      10.255.255.254:53        0.0.0.0:*          
+udp   UNCONN 0      0           127.0.0.1:323       0.0.0.0:*          
+udp   UNCONN 0      0               [::1]:323          [::]:*          
+tcp   LISTEN 0      1000   10.255.255.254:53        0.0.0.0:*          
+tcp   LISTEN 0      4096       127.0.0.54:53        0.0.0.0:*          
+tcp   LISTEN 0      4096    127.0.0.53%lo:53        0.0.0.0:*          

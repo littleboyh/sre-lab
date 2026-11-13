@@ -1,0 +1,14 @@
+# M00 基线快照元数据
+
+- 采集时间：2026-11-13T23:58:07+08:00
+- 来源发行版：Ubuntu-24.04（WSL2 2.7.7.0，内核 6.18.26.1-microsoft-standard-WSL2）
+- 快照路径（**仓库外**，大文件不入 git）：`D:\hqhe\WorkSpacee\sre-lab-vm\ubuntu-24.04-base.tar`
+- 大小：1.85 GB（1990860800 字节）
+- SHA256：`69C00A345AD92D6A15A46BFB0534A480F59A0EF8FF761459B46DFC48D166001B`
+
+导出 / 导入 / 验证 / 清理命令见 [runbooks/wsl-snapshot-restore.md](../runbooks/wsl-snapshot-restore.md)。
+
+## 为什么放在仓库外
+
+1.85 GB 的 tar 不适合进 git（仓库膨胀、clone 变慢、托管限制 100 MB/文件）。
+快照本身是可重建产物，仓库只保存**元数据 + 校验和 + 命令**，任何人可据此重建。

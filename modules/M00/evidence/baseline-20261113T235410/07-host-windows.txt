@@ -1,0 +1,40 @@
+# captured_at=2026-11-13T23:54:44+08:00
+# source=Windows host (PowerShell), complements WSL guest metadata
+
+## Windows
+Caption        : Microsoft Windows 11 专业版
+Version        : 10.0.26200
+BuildNumber    : 26200
+OSArchitecture : 64 位
+
+## WSL
+WSL 版本: 2.7.7.0
+内核版本: 6.18.26.1-1
+WSLg 版本: 1.0.73.2
+MSRDC 版本: 1.2.6676
+Direct3D 版本: 1.611.1-81528511
+DXCore 版本: 10.0.26100.1-240331-1435.ge-release
+Windows: 10.0.26200.9974
+
+## WSL status
+默认分发: Ubuntu-24.04
+默认版本: 2
+
+## host CPU
+Name                      : AMD Ryzen 7 9800X3D 8-Core Processor           
+NumberOfCores             : 8
+NumberOfLogicalProcessors : 16
+MaxClockSpeed             : 4700
+
+## host memory
+TotalPhysicalMemory_GB = 31.1
+
+## .wslconfig
+[wsl2]
+memory=20GB
+processors=10
+swap=8GB
+localhostForwarding=true
+
+[experimental]
+autoMemoryReclaim=gradual
