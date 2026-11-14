@@ -7,7 +7,7 @@
 | 模块 | 状态 | 得分 / 等级 | 证据或结果路径 | 遗留问题 / 下一步 |
 |---|---|---|---|---|
 | [M00 学习系统与实验环境](modules/M00/MODULE.md) | 待验收 | — | [基线 D](modules/M00/evidence/baseline-20261114T102254/00-meta.txt)、[lab-001](modules/M00/experiments/lab-001-environment-baseline.md)、[lab-002](modules/M00/experiments/lab-002-vcpu-topology.md) | 工作已完成（环境/基线/快照重建/拓扑验证、工具链补齐）；独立验收**延后**，按本人决定先进入 M01，阶段 1 结束前补做 |
-| [M01 CPU与进程调度](modules/M01/MODULE.md) | 进行中 | — | [周计划](modules/M01/WEEKLY_PLAN.md) | 第 1 周：CPU 调度心智模型 + 观测命令速查表；`perf` 是否安装待本人决策（第 4 周前） |
+| [M01 CPU与进程调度](modules/M01/MODULE.md) | 进行中 | — | [周计划](modules/M01/WEEKLY_PLAN.md)、[THEORY](modules/M01/THEORY.md)、[观测速查表](modules/M01/observability-cheatsheet.md) | 第 1 周：CPU 调度心智模型 + 观测速查表；`perf` 是否安装待本人决策（第 4 周前） |
 | [M02 内存与内核资源](modules/M02/MODULE.md) | 未开始 | — | — | — |
 | [M03 存储与 I/O](modules/M03/MODULE.md) | 未开始 | — | — | — |
 | [M04 Linux 网络](modules/M04/MODULE.md) | 未开始 | — | — | — |

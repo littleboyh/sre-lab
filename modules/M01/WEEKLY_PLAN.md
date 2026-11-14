@@ -17,7 +17,7 @@
 
 | 周次 / 日期 | 一个可验收的目标 | 学习与实验任务 | 预计工时 | 交付物与通过标准 |
 |---|---|---|---:|---|
-| 第 1 周<br>11-14 ~ 11-20 | 说清 CPU 时间是怎么被分出去的 | 读：进程 vs 线程（`task_struct`/`clone`）、调度类、CFS/EEVDF（`vruntime`、权重、调度延迟）、`nice` 与权重的对应、上下文切换的分类。动手：用 `mpstat`/`pidstat`/`/proc/stat`/`/proc/<pid>/schedstat`/`/proc/pressure/cpu` 观察自己机器上的 idle 状态 | 6h | [THEORY.md](THEORY.md) 的"心智模型 + 可检验预测"两节成稿；一张"观测命令 → 看什么信号"速查表；能不看资料解释 CFS 如何决定下一个运行的 task |
+| 第 1 周<br>11-14 ~ 11-20 | 说清 CPU 时间是怎么被分出去的 | 读：进程 vs 线程（`task_struct`/`clone`）、调度类、CFS/EEVDF（`vruntime`、权重、调度延迟）、`nice` 与权重的对应、上下文切换的分类。动手：用 `mpstat`/`pidstat`/`/proc/stat`/`/proc/<pid>/schedstat`/`/proc/pressure/cpu` 观察自己机器上的 idle 状态 | 6h | [THEORY.md](THEORY.md) 的"心智模型 + 可检验预测"两节成稿；[观测速查表](observability-cheatsheet.md) 第 1～4 节填完；能不看资料解释 CFS 如何决定下一个运行的 task |
 | 第 2 周<br>11-21 ~ 11-27 | 实验 1：同样的"高 load"，两种根因 | 设计实验：空闲对照 / CPU 饱和（`stress-ng --cpu 10`）/ I/O 等待（`stress-ng --hdd` 或对 `/mnt/d` 做慢 I/O）。重点验证：**loadavg 高 ≠ CPU 忙**；用 `vmstat` 的 `r`/`b`、进程 `D` 状态、`iowait`、PSI 区分 | 7h | `experiments/lab-001-loadavg-cpu-vs-io.md` + `evidence/`；基线/实测/预期对照表；能解释"load 包含不可中断睡眠" |
 | 第 3 周<br>11-28 ~ 12-04 | 实验 2：CPU 有余量却被限流 | 用 `systemd-run --user --scope -p CPUQuota=50%`（已验证可用，无需 root）限制 `stress-ng`，对比 100% / 50% / 20% 三档；采集 cgroup `cpu.stat`（`nr_throttled`、`throttled_time`）、`cpu.max`、`mpstat`、`pidstat` | 6h | `experiments/lab-002-cpu-throttling.md` + `evidence/`；给出"限流"的 2～3 个判别信号；解释 host 有余量而进程变慢的原因 |
 | 第 4 周<br>12-05 ~ 12-11 | 实验 3：调度开销与 `perf` 可行性 | 量化上下文切换成本（`pidstat -w` 自愿/非自愿、`sar -w`、`/proc/schedstat`）；评估 `perf`：见下方"环境预检"。`perf` 可用则做 `perf stat`/`perf sched` 热点与调度延迟；不可用则用软件事件与 `/proc` 采样替代，并记录限制 | 7h | `experiments/lab-003-context-switch.md` + `evidence/`；"perf 可用/不可用"的结论与替代方案 |
