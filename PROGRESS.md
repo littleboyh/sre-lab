@@ -1,13 +1,13 @@
 # 进度总账
 
-当前模块：M00（进行中）。下一步：安排 M00 独立验收，通过后进入 M01。
+当前模块：M01（进行中）。下一步：M01 第 1 周——建立 CPU 调度心智模型与观测速查表；M00 独立验收延后补做。
 
 状态：未开始 → 进行中 → 待验收 → 已通过；如未通过，补练后回到待验收。每周更新状态、下一步和证据路径，验收后补齐分数与结果路径。
 
 | 模块 | 状态 | 得分 / 等级 | 证据或结果路径 | 遗留问题 / 下一步 |
 |---|---|---|---|---|
-| [M00 学习系统与实验环境](modules/M00/MODULE.md) | 进行中 | — | [基线 D](modules/M00/evidence/baseline-20261114T102254/00-meta.txt)、[lab-001](modules/M00/experiments/lab-001-environment-baseline.md)、[lab-002](modules/M00/experiments/lab-002-vcpu-topology.md) | 环境/基线/快照重建/拓扑验证均完成；工具链已补齐（sysstat 12.6.1、fio 3.36、stress-ng 0.17.06、jq 1.7）；仅剩独立验收 |
-| [M01 CPU与进程调度](modules/M01/MODULE.md) | 未开始 | — | — | — |
+| [M00 学习系统与实验环境](modules/M00/MODULE.md) | 待验收 | — | [基线 D](modules/M00/evidence/baseline-20261114T102254/00-meta.txt)、[lab-001](modules/M00/experiments/lab-001-environment-baseline.md)、[lab-002](modules/M00/experiments/lab-002-vcpu-topology.md) | 工作已完成（环境/基线/快照重建/拓扑验证、工具链补齐）；独立验收**延后**，按本人决定先进入 M01，阶段 1 结束前补做 |
+| [M01 CPU与进程调度](modules/M01/MODULE.md) | 进行中 | — | [周计划](modules/M01/WEEKLY_PLAN.md) | 第 1 周：CPU 调度心智模型 + 观测命令速查表；`perf` 是否安装待本人决策（第 4 周前） |
 | [M02 内存与内核资源](modules/M02/MODULE.md) | 未开始 | — | — | — |
 | [M03 存储与 I/O](modules/M03/MODULE.md) | 未开始 | — | — | — |
 | [M04 Linux 网络](modules/M04/MODULE.md) | 未开始 | — | — | — |
