@@ -1,0 +1,93 @@
+# M00 vCPU topology probe
+captured_at=2026-11-14T10:23:50+08:00
+host=DESKTOP-OIREDI3 kernel=6.18.26.1-microsoft-standard-WSL2
+
+## lscpu -e（拓扑一览）
+CPU NODE SOCKET CORE L1d:L1i:L2:L3 ONLINE
+  0    0      0    0 0:0:0:0          yes
+  1    0      0    0 0:0:0:0          yes
+  2    0      0    1 1:1:1:0          yes
+  3    0      0    1 1:1:1:0          yes
+  4    0      0    2 2:2:2:0          yes
+  5    0      0    2 2:2:2:0          yes
+  6    0      0    3 3:3:3:0          yes
+  7    0      0    3 3:3:3:0          yes
+  8    0      0    4 4:4:4:0          yes
+  9    0      0    4 4:4:4:0          yes
+
+## 关键拓扑总量
+CPU(s):                                  10
+Thread(s) per core:                      2
+Core(s) per socket:                      5
+Socket(s):                               1
+NUMA node(s):                            1
+
+## /sys/devices/system/cpu/*/topology（SMT 兄弟核）
+cpu0   core_id=0  pkg=0  thread_siblings=0-1
+cpu1   core_id=0  pkg=0  thread_siblings=0-1
+cpu2   core_id=1  pkg=0  thread_siblings=2-3
+cpu3   core_id=1  pkg=0  thread_siblings=2-3
+cpu4   core_id=2  pkg=0  thread_siblings=4-5
+cpu5   core_id=2  pkg=0  thread_siblings=4-5
+cpu6   core_id=3  pkg=0  thread_siblings=6-7
+cpu7   core_id=3  pkg=0  thread_siblings=6-7
+cpu8   core_id=4  pkg=0  thread_siblings=8-9
+cpu9   core_id=4  pkg=0  thread_siblings=8-9
+
+## /proc/cpuinfo（processor / core id / apicid / siblings）
+processor	: 0
+siblings	: 10
+core id		: 0
+apicid		: 0
+processor	: 1
+siblings	: 10
+core id		: 0
+apicid		: 1
+processor	: 2
+siblings	: 10
+core id		: 1
+apicid		: 2
+processor	: 3
+siblings	: 10
+core id		: 1
+apicid		: 3
+processor	: 4
+siblings	: 10
+core id		: 2
+apicid		: 4
+processor	: 5
+siblings	: 10
+core id		: 2
+apicid		: 5
+processor	: 6
+siblings	: 10
+core id		: 3
+apicid		: 6
+processor	: 7
+siblings	: 10
+core id		: 3
+apicid		: 7
+processor	: 8
+siblings	: 10
+core id		: 4
+apicid		: 8
+processor	: 9
+siblings	: 10
+core id		: 4
+apicid		: 9
+
+## cgroup cpuset（若可见）
+/sys/fs/cgroup/cpuset.cpus.effective = 0-9
+
+## taskset 生效范围测试
+-- 默认亲和性 --
+Cpus_allowed_list:	0-9
+-- taskset -c 0,1 --
+Cpus_allowed_list:	0-1
+-- taskset -c 9 --
+Cpus_allowed_list:	9
+
+## 说明
+guest 内只能观测到超管器暴露的 vCPU 与 SMT 组合；
+vCPU -> 宿主逻辑核的对应关系由 Hyper-V 调度决定，guest 内不可见，
+且会随宿主负载/电源策略变化。M01 设计 CPU 争用实验时不得假设 1:1 绑定。

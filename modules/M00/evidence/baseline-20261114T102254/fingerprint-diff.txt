@@ -1,0 +1,31 @@
+--- /mnt/d/hqhe/WorkSpacee/sre-lab/modules/M00/evidence/baseline-20261113T235410/fingerprint.txt	2026-11-14 10:23:18.775402100 +0800
++++ /mnt/d/hqhe/WorkSpacee/sre-lab/modules/M00/evidence/baseline-20261114T102254/fingerprint.txt	2026-11-14 10:23:18.951325900 +0800
+@@ -28,22 +28,22 @@
+ tools.OK findmnt /usr/bin/findmnt
+ tools.OK ip /usr/sbin/ip
+ tools.OK ss /usr/bin/ss
+-tools.MISS iostat 
+-tools.MISS mpstat 
+-tools.MISS pidstat 
+-tools.MISS sar 
++tools.OK iostat /usr/bin/iostat
++tools.OK mpstat /usr/bin/mpstat
++tools.OK pidstat /usr/bin/pidstat
++tools.OK sar /usr/bin/sar
+ tools.OK ping /usr/bin/ping
+ tools.MISS dig 
+ tools.MISS nslookup
+ tools.OK getent /usr/bin/getent
+ tools.OK curl /usr/bin/curl
+ tools.OK wget /usr/bin/wget
+-tools.MISS jq 
++tools.OK jq /usr/bin/jq
+ tools.OK docker /mnt/d/Docker/Desktop/resources/bin/docker
+ tools.MISS go 
+ tools.OK git /usr/bin/git
+ tools.MISS stress 
+-tools.MISS fio 
++tools.OK fio /usr/bin/fio
+ tools.MISS unzip 
+ tools.OK tar /usr/bin/tar
+ host.windows=BuildNumber : 26200

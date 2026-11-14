@@ -1,0 +1,57 @@
+# M00 baseline metadata
+captured_at=2026-11-14T10:23:02+08:00
+hostname=DESKTOP-OIREDI3
+user=hqhe uid=1000 groups=hqhe,adm,cdrom,sudo,dip,plugdev,users,docker
+
+## uname -a
+Linux DESKTOP-OIREDI3 6.18.26.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Wed May  6 23:41:00 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+
+## /etc/os-release
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+
+## /proc/version
+Linux version 6.18.26.1-microsoft-standard-WSL2 (root@8d760d52e3b2) (gcc (GCC) 13.2.0, GNU ld (GNU Binutils) 2.41) #1 SMP PREEMPT_DYNAMIC Wed May  6 23:41:00 UTC 2026
+
+## uptime
+132.19 1293.91
+ 10:23:02 up 2 min,  1 user,  load average: 0.94, 0.23, 0.07
+
+## date
+2026-11-14T10:23:02+08:00
+2026-11-14T02:23:02+00:00
+
+## timezone
+Asia/Shanghai
+/usr/share/zoneinfo/Asia/Shanghai
+
+## locale
+LANG=C.UTF-8
+LANGUAGE=
+LC_CTYPE="C.UTF-8"
+LC_NUMERIC="C.UTF-8"
+LC_TIME="C.UTF-8"
+LC_COLLATE="C.UTF-8"
+LC_MONETARY="C.UTF-8"
+LC_MESSAGES="C.UTF-8"
+LC_PAPER="C.UTF-8"
+LC_NAME="C.UTF-8"
+LC_ADDRESS="C.UTF-8"
+LC_TELEPHONE="C.UTF-8"
+LC_MEASUREMENT="C.UTF-8"
+LC_IDENTIFICATION="C.UTF-8"
+LC_ALL=
+
+## cgroup version / limits
+cgroup2fs

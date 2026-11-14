@@ -49,8 +49,8 @@ Windows 宿主（8C/16T，31.1 GB，真实磁盘）
   - WSL 版本升级（本次 2.7.7.0）、内核升级（6.18.26.1）都会改变 `uname` 与工具面；
   - `.wslconfig` 的 `memory/processors/swap`、`autoMemoryReclaim=gradual` 直接影响 M02 的内存回收实验；
   - Docker Desktop（`docker-desktop` 发行版存在）与 Tailscale（DNS `search tail3eef43.ts.net`）会引入额外进程、监听端口与 DNS 行为，属于基线噪声源。
+- **已证实（2026-11-14，[lab-002](experiments/lab-002-vcpu-topology.md)）**：guest 呈现 5 核 × 2 SMT 线程（兄弟核 0-1/2-3/4-5/6-7/8-9，apicid 0～9）；`taskset` 在 guest 内可正确收紧亲和性；但 **vCPU → 宿主逻辑核的映射不可见且不稳定**——钉住单个 vCPU 时，宿主抬升的逻辑核在采样间漂移。因此 M01 不得假设 1:1 绑定。
 - **尚未证实的推测**：
-  - `processors=10` 在 8C/16T 的 9800X3D 上具体映射到哪 10 个逻辑核、是否存在 SMT 兄弟核绑定，会影响 M01 的 CPU 争用实验设计；需要用 `taskset` + `/proc/cpuinfo` 的 `siblings` 进一步验证。
   - 9p 是否对 `/mnt/d` 的 `fsync` 语义有额外放大，需在 M03 实测。
 
 ## 证据与参考
@@ -62,3 +62,5 @@ Windows 宿主（8C/16T，31.1 GB，真实磁盘）
 | [fingerprint-diff.txt](../evidence/baseline-20261113T235505/fingerprint-diff.txt)（空 diff） | “IDENTICAL”的机器可读证据 |
 | [07-host-windows.txt](../evidence/baseline-20261113T235410/07-host-windows.txt) | 宿主 8C/16T、31.1 GB、`.wslconfig` 配额，解释 guest 资源来源 |
 | 实验报告 [lab-001-environment-baseline](../experiments/lab-001-environment-baseline.md) | 完整步骤、结果与恢复验证 |
+| [vcpu-topology-20261114T102342.txt](../evidence/vcpu-topology-20261114T102342.txt)、[vcpu-mapping-note.txt](../evidence/vcpu-mapping-note.txt) | guest 拓扑为 5C×2T；vCPU→宿主映射不稳定（lab-002） |
+| [lab-002-vcpu-topology](../experiments/lab-002-vcpu-topology.md) | 上述拓扑与映射结论的完整实验记录 |

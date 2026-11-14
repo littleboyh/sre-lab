@@ -1,0 +1,29 @@
+# captured_at=2026-11-14T10:23:12+08:00
+## baseline tool availability
+OK   lscpu    /usr/bin/lscpu
+OK   nproc    /usr/bin/nproc
+OK   vmstat   /usr/bin/vmstat
+OK   free     /usr/bin/free
+OK   df       /usr/bin/df
+OK   lsblk    /usr/bin/lsblk
+OK   findmnt  /usr/bin/findmnt
+OK   ip       /usr/sbin/ip
+OK   ss       /usr/bin/ss
+OK   iostat   /usr/bin/iostat
+OK   mpstat   /usr/bin/mpstat
+OK   pidstat  /usr/bin/pidstat
+OK   sar      /usr/bin/sar
+OK   ping     /usr/bin/ping
+MISS dig     
+MISS nslookup
+OK   getent   /usr/bin/getent
+OK   curl     /usr/bin/curl
+OK   wget     /usr/bin/wget
+OK   jq       /usr/bin/jq
+OK   docker   /mnt/d/Docker/Desktop/resources/bin/docker
+MISS go      
+OK   git      /usr/bin/git
+MISS stress  
+OK   fio      /usr/bin/fio
+MISS unzip   
+OK   tar      /usr/bin/tar

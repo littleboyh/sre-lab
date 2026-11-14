@@ -106,9 +106,26 @@ bash modules/M00/scripts/seal-evidence.sh <每个证据目录>
 - **恢复后用什么数据确认**：清理后的发行版列表；以及 A/B/C 三份指纹与两份空 diff。
 - **再次运行结果**：按上述步骤可重复得到 `IDENTICAL`；快照 sha256 与大小记录在 [snapshot-ubuntu-2404-base.txt](../evidence/snapshot-ubuntu-2404-base.txt)。
 
+## 补充：工具链补齐后复采（2026-11-14）
+
+补装 `sysstat 12.6.1 / fio 3.36 / stress-ng 0.17.06 / jq 1.7` 后，用同一脚本复采两次
+（[baseline-20261114T102254](../evidence/baseline-20261114T102254/00-meta.txt)、
+[baseline-20261114T102306](../evidence/baseline-20261114T102306/00-meta.txt)），并给采集脚本新增
+`08-tool-versions.txt`——工具版本会改变实验结论，必须随基线一起入库。
+
+| 比对 | 结果 | 说明 |
+|---|---|---|
+| 新基线 D vs E（同一环境两次） | **IDENTICAL** | 工具链变更后基线仍可复跑 |
+| 旧基线 A vs 新基线 D | **DIFFERENT** | 差异**只出现在 `tools.*` 4 行**：iostat/mpstat/pidstat/sar/fio/jq 由 `MISS` 变 `OK`；其余身份字段逐字相同 |
+
+这组结果同时验证了指纹的**灵敏度与边界**：它能精确指出“环境变了哪一处”，也不会把无关噪声报成差异。
+装工具前的旧基线保留不删，作为环境变更前的对照。
+
 ## 遗留问题
 
-1. `sudo` 需要密码，`sysstat / fio / stress-ng / jq` 未安装 → M03（I/O）、M14（压测）前必须由本人执行一次
-   `sudo apt-get install -y sysstat fio stress-ng jq` 并记录版本。
-2. `processors=10` 在 8C/16T 的 9800X3D 上映射到哪些逻辑核、是否 SMT 兄弟核绑定，尚未验证 → M01 前用 `taskset` + `/proc/cpuinfo` 的 `siblings` 补测。
+1. ~~`sudo` 需要密码，`sysstat / fio / stress-ng / jq` 未安装~~ → **已解决（2026-11-14）**：
+   已由本人安装，版本记录在 [08-tool-versions.txt](../evidence/baseline-20261114T102254/08-tool-versions.txt)。
+   `dig/nslookup/go/stress/unzip` 仍缺：`dig` 可用 `getent`/`resolvectl` 替代，`go` 在 M05 前安装。
+2. ~~`processors=10` 的 vCPU 映射未验证~~ → **已完成**，见 [lab-002](lab-002-vcpu-topology.md)：
+   guest 为 5C×2T；vCPU→宿主逻辑核无稳定 1:1 映射，M01 只能在 guest 内控制与观测。
 3. 本模块尚未做**独立验收**（需他人按 [ASSESSMENT.md](../../../ASSESSMENT.md) 给出现象与目标）。

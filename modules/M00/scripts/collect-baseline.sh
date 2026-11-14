@@ -227,6 +227,21 @@ section_pipe() {
   done
 } >"$OUTDIR/06-tools.txt" 2>&1
 
+# ---------- 08 关键工具版本 ----------
+{
+  echo "# captured_at=$TS"
+  echo "## tool versions（版本变化会改变实验结论，必须随基线记录）"
+  have git && git --version
+  if have curl; then echo -n "curl: "; curl --version 2>/dev/null | head -1; fi
+  if have ip; then echo -n "iproute2: "; ip -V 2>/dev/null; fi
+  if have ss; then echo -n "ss(iproute2): "; ss -V 2>/dev/null; fi
+  if have iostat; then echo -n "sysstat: "; iostat -V 2>/dev/null | head -1; fi
+  if have fio; then echo -n "fio: "; fio --version 2>/dev/null; fi
+  if have stress-ng; then echo -n "stress-ng: "; stress-ng --version 2>/dev/null; fi
+  if have jq; then echo -n "jq: "; jq --version 2>/dev/null; fi
+  if have stress; then echo -n "stress: "; stress --version 2>/dev/null | head -1; fi
+} >"$OUTDIR/08-tool-versions.txt" 2>&1
+
 # ---------- 校验和 ----------
 ( cd "$OUTDIR" && sha256sum ./*.txt 2>/dev/null > SHA256SUMS ) || true
 

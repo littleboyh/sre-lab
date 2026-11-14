@@ -1,0 +1,38 @@
+# captured_at=2026-11-14T10:23:12+08:00
+## free -m
+               total        used        free      shared  buff/cache   available
+Mem:           20001         694       18129           3        1403       19306
+Swap:           8192           0        8192
+
+## /proc/meminfo 关键字段
+MemTotal:       20481156 kB
+MemFree:        18564752 kB
+MemAvailable:   19769520 kB
+Buffers:           51032 kB
+Cached:          1360860 kB
+SwapTotal:       8388608 kB
+SwapFree:        8388608 kB
+Dirty:              6484 kB
+Writeback:             0 kB
+Slab:              85620 kB
+SReclaimable:      24984 kB
+SUnreclaim:        60636 kB
+PageTables:         4536 kB
+Committed_AS:     496556 kB
+
+## swapon
+NAME     TYPE      SIZE USED PRIO
+/dev/sdc partition   8G   0B   -2
+
+## OOM / PSI
+some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+full avg10=0.00 avg60=0.00 avg300=0.00 total=0
+
+## vmstat 1 5 (r b swpd free buff cache si so bi bo in cs us sy id wa st)
+procs -----------memory---------- ---swap-- -----io---- -system-- -------cpu-------
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st gu
+ 0  0      0 18564752  51032 1385844    0    0 15451  1446 1483    1  0  1 98  1  0  0
+ 0  0      0 18564528  51032 1385888    0    0     0     0  180   90  0  0 100  0  0  0
+ 0  0      0 18566888  51032 1385888    0    0     0     0  125   78  0  0 100  0  0  0
+ 0  0      0 18566888  51032 1385888    0    0     0     0  107   59  0  0 100  0  0  0
+ 0  0      0 18569136  51032 1385888    0    0     0     0  151   86  0  0 100  0  0  0

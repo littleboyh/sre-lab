@@ -25,3 +25,11 @@
   - 目标：补齐工具链 + 验证 vCPU 映射 + 准备独立验收。
   - 完成条件：`sysstat/fio/stress-ng` 版本入库并复采基线；`taskset` 验证结论写入 THEORY；`assessment/RESULT.md` 就绪待验收。
 - 是否已更新 PROGRESS.md：已更新（M00 → 进行中，证据路径已填）。
+
+## 2026-11-14 补充
+
+- 工具链已补齐并复采基线：新基线 D vs E `IDENTICAL`；旧基线 A vs 新基线 D 差异**仅 `tools.*` 4 行**，
+  见 [lab-001](../experiments/lab-001-environment-baseline.md) 的“补充”节。指纹灵敏度得到正面验证。
+- vCPU 映射已验证（[lab-002](../experiments/lab-002-vcpu-topology.md)）：guest 为 5C×2T；vCPU→宿主逻辑核
+  **无稳定 1:1 映射**，M01 只能在 guest 内控制与观测。
+- 剩余：M00 独立验收。
